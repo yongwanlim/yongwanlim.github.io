@@ -1,7 +1,7 @@
 ---
 layout: about
 permalink: /
-title: <strong>Your</strong> Name
+title: <strong>Yongwan </strong>Lim
 description: <a href="">Ph.D. Student</a>. University of Southern California
 
 profile:
