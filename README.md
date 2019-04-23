@@ -19,81 +19,79 @@ The emphasis is on whitespace, transparency, and academic usage: [theme demo](ht
 
 ### Installation
 
-1. Install [Jekyll](https://jekyllrb.com/docs/installation/macos/)
-We're going to install Jekyll locally before deploying anything to GitHub pages.
-Install Command Line Tools
-Open Terminal. Check to see if you have XCode Command Line Tools installed by typing gcc -v. At this point, it will prompt you to install if you don't. Or run this code to install:
-```bash
-$ xcode-select --install
-```
+1. Install [Jekyll](https://jekyllrb.com/docs/installation/macos/)  
+	We're going to install Jekyll locally before deploying anything to GitHub pages.
+    - Install Command Line Tools
+      Open Terminal. Check to see if you have XCode Command Line Tools installed by typing gcc -v. At this point, it will prompt you to install if you don't. Or run this code to install:
+	  ```bash
+	  $ xcode-select --install
+	  ```
 
 2. Install [Ruby](https://www.ruby-lang.org/en/downloads/) 
-Ruby should come pre-installed on all OSX computers. You can check if Ruby is installed by running ruby -v. It should return with Ruby version 2.0.0 or higher.
-ruby 2.0.0p645 (2015-04-13 revision 50299) [universal.x86_64-darwin15]
-If for some reason you're running a lower version, you can update.
-```bash
-$ sudo gem install ruby
-```
+	Ruby should come pre-installed on all OSX computers. You can check if Ruby is installed by running ruby -v. It should return with Ruby version 2.0.0 or higher. ruby 2.0.0p645 (2015-04-13 revision 50299) [universal.x86_64-darwin15]
+	If for some reason you're running a lower version, you can update.
+	```bash
+	$ sudo gem install ruby
+    ```
 
 3. Install [Bundler](https://bundler.io/)
-Bundler is a package manager that will aid you in installing all the Jekyll dependencies.
-```bash
-$ sudo gem install bundler
-```
+	Bundler is a package manager that will aid you in installing all the Jekyll dependencies.
+	```bash
+	$ sudo gem install bundler
+	```
 
-4. Fork the theme from `github.com:alshedivat/al-folio` to `github.com:<your-username>/<your-repo-name>` (get an instruction [here](https://help.github.com/en/articles/fork-a-repo) and do the following:
+4. Fork the theme
+	Fork from `github.com:alshedivat/al-folio` to `github.com:<your-username>/<your-repo-name>` (get an instruction [here](https://help.github.com/en/articles/fork-a-repo) and do the following:
+	```bash
+	$ git clone git@github.com:<your-username>/<your-repo-name>.git
+	$ cd <your-repo-name>
+	$ bundle install
+	$ bundle exec jekyll serve
+	```
 
-```bash
-$ git clone git@github.com:<your-username>/<your-repo-name>.git
-$ cd <your-repo-name>
-$ bundle install
-$ bundle exec jekyll serve
-```
-
-For example, you can type:
-```bash
-$ git clone git@github.com:yongwanlim/yongwanlim.github.io.git
-$ cd yongwanlim.github.io
-$ bundle install
-$ bundle exec jekyll serve
-```
+	For example, you can type:
+	```bash
+	$ git clone git@github.com:yongwanlim/yongwanlim.github.io.git
+	$ cd yongwanlim.github.io
+	$ bundle install
+	$ bundle exec jekyll serve
+	```
 
 5. Now, feel free to customize the theme however you like (don't forget to change the name!). After you are done, **commit** your final changes.
-```bash
-$ git remote -v
-$ git status
-$ git add .
-$ git commit -m “initial commit”
+	```bash
+	$ git remote -v
+	$ git status
+	$ git add .
+	$ git commit -m “initial commit”
+	```
 
 6. Modify your `_config.yml`
-**Note:** when deploying your user or organization page, make sure the `_config.yml` has `url` and `baseurl` fields as follows.
+	**Note:** when deploying your user or organization page, make sure the `_config.yml` has `url` and `baseurl` fields as follows.
 
-```
-url: # should be empty
-baseurl:  # should be empty
-```
+	```
+	url: # should be empty
+	baseurl:  # should be empty
+	```
 
 7. Deploy your website to [GitHub Pages](https://pages.github.com/) by running the deploy script:
 
-```bash
-$ ./bin/deploy --user
-```
+	```bash
+	$ ./bin/deploy --user
+	```
 
-**al-folio** said: 
+	_al-folio_ said: 
 
-> By default, the script uses the `master` branch for the source code and deploys the webpage to `gh-pages`.
-The optional flag `--user` tells it to deploy to `master` and use `source` for the source code instead.
-Using `master` for deployment is a convention for [user and organization pages](https://help.github.com/articles/user-organization-and-project-pages/).
+	> By default, the script uses the `master` branch for the source code and deploys the webpage to `gh-pages`.
+	The optional flag `--user` tells it to deploy to `master` and use `source` for the source code instead.
+	Using `master` for deployment is a convention for [user and organization pages](https://help.github.com/articles/user-organization-and-project-pages/).
 
-8. Now, you are set. Visit <your-username>/<your-repo-name>. Here, my webpage address for example, yongwanlim.github.io. 
+8. Now, you are all set. Visit `<your-username>/<your-repo-name>`. Here, my webpage address for example, is `yongwanlim.github.io`. 
 
-### For more information
+### For more useful information
 
-I found here useful informations:
-
-https://github.com/alshedivat/al-folio
-https://www.taniarascia.com/make-a-static-website-with-jekyll/
-https://jekyllrb.com/docs/installation/macos/
+https://github.com/alshedivat/al-folio  
+https://www.taniarascia.com/make-a-static-website-with-jekyll/  
+https://jekyllrb.com/docs/installation/macos/  
 
 
 ## License
