@@ -15,29 +15,27 @@ The emphasis is on whitespace, transparency, and academic usage: [theme demo](ht
 
 ## Getting started
 
-**I follow the instructions shown on [the orginal site](https://github.com/alshedivat/al-folio) and add some more steps to follow here.**
+**I follow the instructions shown on [the orginal site](https://github.com/alshedivat/al-folio) and add here some more steps to follow.**
 
 ### Installation
 
-1. Install [Jekyll](https://jekyllrb.com/docs/installation/macos/)<br/>
-	We're going to install Jekyll locally before deploying anything to GitHub pages.
-    - Install Command Line Tools
-      Open Terminal. Check to see if you have XCode Command Line Tools installed by typing gcc -v. At this point, it will prompt you to install if you don't. Or run this code to install:
-	  ```bash
-	  $ xcode-select --install
-	  ```
+1. Install Command Line Tools<br/>
+    Open Terminal. Check to see if you have XCode Command Line Tools installed by typing gcc -v. At this point, it will prompt you to install if you don't. Or run this code to install:
+    ```bash
+	$ xcode-select --install
+	```
 
 2. Install [Ruby](https://www.ruby-lang.org/en/downloads/)<br/> 
-	Ruby should come pre-installed on all OSX computers. You can check if Ruby is installed by running ruby -v. It should return with Ruby version 2.0.0 or higher. ruby 2.0.0p645 (2015-04-13 revision 50299) [universal.x86_64-darwin15]
+	Ruby should come pre-installed on all OSX computers. You can check if Ruby is installed by running ruby -v. It should return with Ruby version 2.0.0 or higher. ruby 2.0.0p645 (2015-04-13 revision 50299) [universal.x86_64-darwin15].
 	If for some reason you're running a lower version, you can update.
 	```bash
 	$ sudo gem install ruby
     ```
 
-3. Install [Bundler](https://bundler.io/)<br/>
+3. Install [Bundler](https://bundler.io/) and [Jekyll](https://jekyllrb.com/docs/installation/macos/)<br/>
 	Bundler is a package manager that will aid you in installing all the Jekyll dependencies.
 	```bash
-	$ sudo gem install bundler
+	$ sudo gem install bundler jekyll
 	```
 
 4. Fork the theme<br/>
