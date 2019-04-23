@@ -19,7 +19,7 @@ The emphasis is on whitespace, transparency, and academic usage: [theme demo](ht
 
 ### Installation
 
-1. Install [Jekyll](https://jekyllrb.com/docs/installation/macos/)  
+1. Install [Jekyll](https://jekyllrb.com/docs/installation/macos/)<br/>
 	We're going to install Jekyll locally before deploying anything to GitHub pages.
     - Install Command Line Tools
       Open Terminal. Check to see if you have XCode Command Line Tools installed by typing gcc -v. At this point, it will prompt you to install if you don't. Or run this code to install:
@@ -27,20 +27,20 @@ The emphasis is on whitespace, transparency, and academic usage: [theme demo](ht
 	  $ xcode-select --install
 	  ```
 
-2. Install [Ruby](https://www.ruby-lang.org/en/downloads/) 
+2. Install [Ruby](https://www.ruby-lang.org/en/downloads/)<br/> 
 	Ruby should come pre-installed on all OSX computers. You can check if Ruby is installed by running ruby -v. It should return with Ruby version 2.0.0 or higher. ruby 2.0.0p645 (2015-04-13 revision 50299) [universal.x86_64-darwin15]
 	If for some reason you're running a lower version, you can update.
 	```bash
 	$ sudo gem install ruby
     ```
 
-3. Install [Bundler](https://bundler.io/)
+3. Install [Bundler](https://bundler.io/)<br/>
 	Bundler is a package manager that will aid you in installing all the Jekyll dependencies.
 	```bash
 	$ sudo gem install bundler
 	```
 
-4. Fork the theme
+4. Fork the theme<br/>
 	Fork from `github.com:alshedivat/al-folio` to `github.com:<your-username>/<your-repo-name>` (get an instruction [here](https://help.github.com/en/articles/fork-a-repo) and do the following:
 	```bash
 	$ git clone git@github.com:<your-username>/<your-repo-name>.git
@@ -57,7 +57,7 @@ The emphasis is on whitespace, transparency, and academic usage: [theme demo](ht
 	$ bundle exec jekyll serve
 	```
 
-5. Now, feel free to customize the theme however you like (don't forget to change the name!). After you are done, **commit** your final changes.
+5. Now, feel free to customize the theme however you like (don't forget to change the name!). After you are done, **commit** your final changes.<br/>
 	```bash
 	$ git remote -v
 	$ git status
@@ -65,7 +65,7 @@ The emphasis is on whitespace, transparency, and academic usage: [theme demo](ht
 	$ git commit -m “initial commit”
 	```
 
-6. Modify your `_config.yml`
+6. Modify your `_config.yml`<br/>
 	**Note:** when deploying your user or organization page, make sure the `_config.yml` has `url` and `baseurl` fields as follows.
 
 	```
@@ -85,7 +85,7 @@ The emphasis is on whitespace, transparency, and academic usage: [theme demo](ht
 	The optional flag `--user` tells it to deploy to `master` and use `source` for the source code instead.
 	Using `master` for deployment is a convention for [user and organization pages](https://help.github.com/articles/user-organization-and-project-pages/).
 
-8. Now, you are all set. Visit `<your-username>/<your-repo-name>`. Here, my webpage address for example, is `yongwanlim.github.io`. 
+8. Now, you are all set. Visit `https://<your-username>/<your-repo-name>`. For example, here my webpage address is https://yongwanlim.github.io/. 
 
 ### For more useful information
 
