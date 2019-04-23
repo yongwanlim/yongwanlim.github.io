@@ -32,7 +32,7 @@ google_analytics: UA-XXXXXXXXX # out your google-analytics code
 # Blog
 # -----------------------------------------------------------------------------
 blog_name: Yongwan Lim
-blog_description: a simple whitespace theme for academics
+blog_description: Under development
 
 # Pagination
 paginate: 4

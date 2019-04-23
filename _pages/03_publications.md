@@ -2,12 +2,20 @@
 layout: page
 permalink: /publications/
 title: publications
-description: Publications in reversed chronological order.
+description: Peer-reviewed journals and conferences by categories in reversed chronological order.
 
-years: [2019, 2018, 2017, 2016, 2015, 2014, 2012]
+journal_years: [2019, 2017, 2015]
+conference_years: [2019, 2018, 2017, 2016, 2014, 2012]
 ---
 
-{% for y in page.years %}
+## **Journals**
+{% for y in page.journal_years %}
   <h3 class="year">{{y}}</h3>
-  {% bibliography -f papers -q @*[year={{y}}]* %}
+  {% bibliography -f journals -q @*[year={{y}}]* %}
+{% endfor %}
+
+## **Conferences**
+{% for y in page.conference_years %}
+  <h3 class="year">{{y}}</h3>
+  {% bibliography -f conferences -q @*[year={{y}}]* %}
 {% endfor %}
