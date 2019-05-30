@@ -33,7 +33,7 @@ A simple and clean [Jekyll](https://jekyllrb.com/) theme for academics.
 	```
 
 4. Fork the theme<br/>
-	Fork from `github.com:alshedivat/al-folio` to `github.com:<your-username>/<your-repo-name>` (get an instruction [here](https://help.github.com/en/articles/fork-a-repo) and do the following:
+	Fork from `github.com:alshedivat/al-folio` to `github.com:<your-username>/<your-repo-name>` (get an instruction [here](https://help.github.com/en/articles/fork-a-repo)) and do the following:
 	```bash
 	$ git clone git@github.com:<your-username>/<your-repo-name>.git
 	$ cd <your-repo-name>
