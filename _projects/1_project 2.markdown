@@ -75,7 +75,7 @@ The main challenges of this problem would be that:
 1. Proposed Method: InfoCVAE
 
     <div class="img_row">
-    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig_infovae.png" alt="" title="example image"/>
+    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig1.png" alt="" title="example image"/>
     </div>
     <div class="col three caption">
     Proposed Method: InfoVAE
