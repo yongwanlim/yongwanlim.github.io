@@ -47,23 +47,23 @@ The main challenges of this problem would be that:
     1. Conditional Variational Auto-Encoder:
 
     <div class="img_row">
-        <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig_cvae1.png" alt="" title="example image"/>
+        <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig_cvae_training.png" alt="" title="cvae training mode"/>
     </div>
     <div class="col three caption">
         Training mode CVAE
     </div>
         
     <div class="img_row">
-        <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig_cvae2.png" alt="" title="example image"/>
+        <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig_cvae_inference.png" alt="" title="cvae inference mode"/>
     </div>
     <div class="col three caption">
         Inference mode CVAE
     </div>
     
-        * Conditional VAE system that uses keyword/sentiment as conditional input.
-        * Both encoder and decoder take the keyword input during training. 
-        * Decoder outputs a few sentences of review about a product driven by keyword input.
-        * Random noise input can work as a seed for generated review
+    * Conditional VAE system that uses keyword/sentiment as conditional input.
+    * Both encoder and decoder take the keyword input during training. 
+    * Decoder outputs a few sentences of review about a product driven by keyword input.
+    * Random noise input can work as a seed for generated review
 
     2. Generative Pretrained Transformer (GPT)-2 text generation model:
 
@@ -74,9 +74,9 @@ The main challenges of this problem would be that:
         GPT2 Model
     </div>
     
-        * A large generative, transformer-based  model ( > 1.5B parameters ) capable of conditional text generation
-        * Outperforms other language models trained on specific domains without needing to be trained on the domain-specific text, and its ability to learn from raw text suggests it can benefit from unsupervised techniques
-        * With fine-tuning GPT-2 on Amazon reviews, it is capable of generating long yet  realistic/coherent texts on a particular topic, product-category, or  star-rating
+    * A large generative, transformer-based  model ( > 1.5B parameters ) capable of conditional text generation
+    * Outperforms other language models trained on specific domains without needing to be trained on the domain-specific text, and its ability to learn from raw text suggests it can benefit from unsupervised techniques
+    * With fine-tuning GPT-2 on Amazon reviews, it is capable of generating long yet  realistic/coherent texts on a particular topic, product-category, or  star-rating
 
 * Proposed Method: InfoCVAE
 
