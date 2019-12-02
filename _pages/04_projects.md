@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Courses projects
+description: Course projects
 ---
 
 {% for project in site.projects %}
