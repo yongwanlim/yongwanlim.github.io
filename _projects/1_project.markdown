@@ -10,6 +10,7 @@ img: /assets/img/12.jpg
 The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years.
 While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with GANs in text and language applications
 
+
 ### **Goal of this project**
 
 The goal of this project as title indicates is to artificially generate semantically and syntactically correct sentences given human inputted keyword prompts. A possible application is fake review generation. We expect this project to have the following features:
@@ -19,13 +20,14 @@ The goal of this project as title indicates is to artificially generate semantic
 
 
 ### **Problem Definition**
+
 Artificially generate semantically and syntactically correct review sentences given human inputted keyword prompts
 
 * Training input: review sentences, rating 1~5, subject category
-
 * Inference
     * Input: review rating 1~5, keywords (subject category,...)
-    * Output: review sentences containing and/or reflecting the given distinct context  
+
+    * Output: review sentences containing and/or reflecting the given distinct context 
 
 * Environment:
     * Pytorch 0.4.1, CUDA 10.0, Cudnn 7.4
@@ -40,21 +42,23 @@ The main challenges of this problem would be that:
 
 
 ### **Generative Models**
-1. Baseline Models:
+
+* Baseline Models:
     1. Conditional Variational Auto-Encoder:
-        <div class="img_row">
+
+    <div class="img_row">
         <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig_cvae1.png" alt="" title="example image"/>
-        </div>
-        <div class="col three caption">
+    </div>
+    <div class="col three caption">
         Training mode CVAE
-        </div>
+    </div>
         
-        <div class="img_row">
+    <div class="img_row">
         <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig_cvae2.png" alt="" title="example image"/>
-        </div>
-        <div class="col three caption">
+    </div>
+    <div class="col three caption">
         Inference mode CVAE
-        </div>
+    </div>
     
         * Conditional VAE system that uses keyword/sentiment as conditional input.
         * Both encoder and decoder take the keyword input during training. 
@@ -62,28 +66,30 @@ The main challenges of this problem would be that:
         * Random noise input can work as a seed for generated review
 
     2. Generative Pretrained Transformer (GPT)-2 text generation model:
-        <div class="img_row">
+
+    <div class="img_row">
         <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig_gpt2.png" alt="" title="example image"/>
-        </div>
-        <div class="col three caption">
+    </div>
+    <div class="col three caption">
         GPT2 Model
-        </div>
+    </div>
     
         * A large generative, transformer-based  model ( > 1.5B parameters ) capable of conditional text generation
         * Outperforms other language models trained on specific domains without needing to be trained on the domain-specific text, and its ability to learn from raw text suggests it can benefit from unsupervised techniques
         * With fine-tuning GPT-2 on Amazon reviews, it is capable of generating long yet  realistic/coherent texts on a particular topic, product-category, or  star-rating
 
-1. Proposed Method: InfoCVAE
+* Proposed Method: InfoCVAE
 
     <div class="img_row">
-    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig_infovae.png" alt="" title="example image"/>
+        <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig_infovae.png" alt="" title="example image"/>
     </div>
     <div class="col three caption">
-    Proposed Method: InfoVAE
+        Proposed Method: InfoVAE
     </div>
 
 
 ### **Experiments**
+
 1. Data Cleaning
     * Removed very short reviews, “fake reviews” (as determined statistically by content and post date), and reviews where ratings did not correspond with the sentiment of the text 
     * Tokenization steps included  special character and stopword removal
@@ -95,7 +101,9 @@ The main challenges of this problem would be that:
 
 
 ### **Evaluation**
+
 We will evaluate the quality of artificially generated sentences along the following two dimensions.
+
 1. Evaluation by algorithm:
     * Employ a detector neural network model that trained separately from the generator (pre-trained GPT-2 Detector that has been fine-tuned with the same training data as the generator)
     * Statistical methods 
@@ -105,7 +113,9 @@ We will evaluate the quality of artificially generated sentences along the follo
     * F1 score will be reported.
 
 ### **Experimental Results**
+
 Some preliminary results from the prototype models
+
 1. CVAE output examples: Trained on 800,000 musical instrument section comments. Star rating of 5 was given as condition for CVAE model.
 
     * *Example 1*<br/>
