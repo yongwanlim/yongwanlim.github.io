@@ -4,7 +4,8 @@ title: Real review generation using conditional generative language model
 description: CSCI 566 2019 Fall Project (NLP TextGen)
 img: /assets/img/12.jpg
 ---
-*Taejin Park, Yongwan Lim, Kaixi Wang, Yichen Zhou*
+**_Taejin Park, Yongwan Lim, Kaixi Wang, Yichen Zhou_**
+
 
 The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years.
 While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with GANs in text and language applications
