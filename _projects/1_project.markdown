@@ -2,7 +2,7 @@
 layout: page
 title: Product review generation using conditional generative language model
 description: CSCI 566 2019 Fall Project (NLP TextGen)
-img: /assets/img/12.jpg
+img: /assets/img/project1_fig0.png
 ---
 **_Taejin Park, Yongwan Lim, Yichen Zhou, Kaixi Wang_**
 
