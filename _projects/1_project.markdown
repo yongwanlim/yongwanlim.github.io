@@ -4,46 +4,47 @@ title: Product review generation using conditional generative language model
 description: CSCI 566 2019 Fall Project (NLP TextGen)
 img: /assets/img/project1_fig0.png
 ---
-**_Taejin Park, Yongwan Lim, Yichen Zhou, Kaixi Wang_**
+**_Taejin Park, Yongwan Lim, Yichen Zhou, Kaixi Wang_** 
 
+#### [[CODE]](https://bitbucket.org/taejinpa/cvae-textgen) [[SLIDES]](https://docs.google.com/presentation/d/e/2PACX-1vS1R_IaLbmIQYgMBN3piap-J5ubM0HCLHQX7a70T9zbBMlo8D9Mnpmv2jIh27lxJv1gCgjxuadSFIG5/pub?start=false&loop=false&delayms=3000)
 
-The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as GAN and VAE in text and language applications. 
+### **Motivation**  
 
+The rise of deep neural-network based approaches has significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as VAE [1] and GPT2 [2-3] in text and language applications. 
 
-### **Goal of this project**
+### **Goal of this project**  
 
-The goal of this project is to artificially generate semantically and syntactically correct sentences given human inputted keyword prompts. Specifically, we are trying to address the question like *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many of real life applications, including chat-bot, AI speaker, predictive text, and so on. 
+The goal of this project is to artificially generate semantically and syntactically correct product review comments given human inputted keyword prompts. Specifically, we are trying to address the question: *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many real life applications, including chat-bot, AI speaker, predictive text, and many others. 
 
 <div class="img_row">
 <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig1.png" alt="" title="fig1"/>
 </div>
 
-We expect this project to have the following features:
+We expect this project to have the following features:  
 * Generative language model
 * Keyword prompts input: sentiment (rating), subject (product name), aggressiveness (vocabulary)
 * Grammatically correct sentence output that contains a distinct context
 
 
-
 ### **Problem Definition**
 
 To artificially generate semantically and syntactically correct review sentences given human inputted keyword prompts.  
-
-* Training input: review texts, rating 1~5, subject category
+* Training input: review texts, rating 1 or 5 
 * Inference
-    * Input: review rating 1~5, keywords (subject category,...)
+    * Input: review rating 1 or 5
     * Output: review sentences containing and/or reflecting the given distinct context and sentiment
 
 This would require us to being able to have randomness and controllability at the same time.
 The main challenges of this problem would be that:
-* Output is often generated independent of the conditioning input (mode collapse).
+
+* The generated output is often independent of the conditioning input (mode collapse).
 * Quality of generated sentence (repetitive phrases, too general output) 
 
+### **Traditional Method**
 
-### **Previous Method**
-#### Conditional Variational Auto-Encoder (VAE)
+#### Conditional Variational Auto-Encoder (CVAE) [1]
 
-* Training
+#### Training
 
 <div class="img_row">
 <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig2.png" alt="" title="fig2"/>
@@ -52,7 +53,10 @@ The main challenges of this problem would be that:
 Training mode CVAE
 </div>
 
-* Inference
+* Conditional VAE system that uses keyword/sentiment as conditional input.
+* Both encoder and decoder take the keyword input during training. 
+
+#### Inference
 
 <div class="img_row">
 <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig3.png" alt="" title="fig3"/>
@@ -61,20 +65,19 @@ Training mode CVAE
 Inference mode CVAE
 </div>
 
-* Conditional VAE system that uses keyword/sentiment as conditional input.
-* Both encoder and decoder take the keyword input during training. 
 * Decoder outputs a few sentences of review about a product driven by keyword input.
-* Random noise input can work as a seed for generated review
-
-* **Main problem**: the decoder ignores conditional input (mode collapse)
+* Random noise input can work as a seed for generated review.    
+* **Limitation of conventional CVAE** : the decoder ignores conditional input (mode collapse)
     * Example: 
         * 1-star input, 100 noise samples ➝  44 positive, 56 negative output 
         * 5-star input, 100 noise samples ➝  61 positive, 39 negative output 
 
+    * Even if we provide conditioning input to decoder, the sentiment is heavily dependent on random signal and conditioning input is not able to change the sentiment already ingrained in the random noise.
+    * Thus, we need more powerful and efficient way to enforce the sentiment to the training and inference systems.
 
-### **Proposed Method: Improved CVAE**
 
-* Training (CVAE + **Discriminator**) 
+### **Proposed Method: Improved CVAE** 
+#### Training (CVAE + **Discriminator**) 
 
 <div class="img_row">
 <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig4.png" alt="" title="fig4"/>
@@ -83,201 +86,180 @@ Inference mode CVAE
 Training: CVAE + "Discriminator"
 </div>
 
-* Inference (**Conditional** Decoder + **Discriminator** + **Filtering**)
+* Discriminator is a classifier that predicts sentiment of a word sequence generated by the decoder.
+* Attaching discriminator enables the model to backpropagate the error from the sentiment (star rating) labels thus leads to more accurate sentiment.
 
-    <div class="img_row">
-    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig5.png" alt="" title="fig5"/>
-    </div>
-    <div class="col three caption">
-    "Conditional"" Decoder + "Discriminator"
-    </div>
+#### Inference (**Conditional** Decoder + **Discriminator** + **Filtering**)
 
-    <div class="img_row">
-    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig6.png" alt="" title="fig6"/>
-    </div>
-    <div class="col three caption">
-    "Conditional" Decoder + "Discriminator" + "Filtering"
-    </div>
-    
-    * Output filtering by discriminator’s softmax value
-    
-    
-### **Network Training**
+<div class="img_row">
+<img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig5.png" alt="" title="fig5"/>
+</div>
+<div class="col three caption">
+"Conditional" Decoder + "Discriminator"
+</div>
 
-* Training Dataset:  Amazon review dataset [3]
-    * Train with a subset of 5 major categories (Electronics, mobile electronics, major appliances, and etc)
-    * Train on 0.6M reviews
+* Since conventional CVAE system ignores the conditioning input, we can force the conditioned word output by leveraging the discriminator.
+* The alpha value balances between the softmax value from discriminator and the softmax value from the decoder.
+* If the alpha value is close to 0, the model outputs very plausible and grammatically correct sentence but with inaccurate sentiment.
+* If the alpha value is close to 1, the model generates a sentence that expresses more accurate sentiment but is often grammatically and semantically incorrect.
+
+<div class="img_row">
+<img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig6.png" alt="" title="fig6"/>
+</div>
+<div class="col three caption">
+"Conditional" Decoder + "Discriminator" + "Filtering"
+</div>
+
+* If text output is not giving a certain amount of confidence in terms of softmax value of the discriminator, we drop the output text and regenerate it.
+
+### **Neural Network Training**
+
+* Training Dataset:  Amazon review dataset [4]
+    * Trained on a subset of 5 major categories (Electronics, mobile electronics, major appliances, and etc)
+    * Trained on total 0.6M reviews
     * Vocabulary size of 60K words
     * Limit sentence length between 20 and 60 words, including punctuations.
     * Only use 1-star (negative) and 5-star (positive) ratings
-    * 66% negative / 33% positive data
-    * Example  
+    * 66% negative / 33% positive data (*Since negative comments tend to have more variability, doubling the dataset of negative training data balances the variability of output text's sentiment)
+    * Example of training dataset: 
+    
         `Reviewer ID: R1KKOXHNI8MSXU`  
-        `Product category: Apparel`  
-        `Review text: “This is the second leggings I have ordered, I wear both of them often. They wash well and I receive many compliments on them!”`  
-        `5-star rating of the product: 5` 
+        `Product category: Apparel`   
+        `Review text: “This is the second leggings I have ordered, I wear both of them often. They wash well and I receive many compliments on them!”`   
+        `5-star rating of the product: 5`   
         `Helpful votes: 3`
-        
+
 * Environment
     * Pytorch 0.4.1, CUDA 10.0, Python 3.6
 
 
 ### **Experiments**
-
 We test the effectiveness of the proposed methods in terms of sentiment accuracy measure:
-1. Conditional decoder
-    * The conditional output accuracy is dependent on 𝜶.
-    * Check how output text varies over different 𝜶.  
-1. Output filtering
-    * Rejects the output text with low discriminator output softmax probability
-        
-Sentiment accuracy is used as a performance metric, which is measured by BERT (Transformer) + LSTM sentiment classifier trained on IMDB dataset. Note that for sanity check, accuracy of 92.31% for IMDB test set.
 
+1. Conditional decoder
+* The conditional output accuracy is dependent on 𝜶.
+* Check how output text varies over different 𝜶.  
+
+1. Output filtering
+* Rejects the output text with low discriminator output softmax probability
+
+Sentiment accuracy is used as a performance metric, which is measured by BERT (Transformer) + LSTM sentiment classifier trained on IMDB dataset. For sanity check, we ensure that the classifier reaches accuracy of 92.31% for IMDB test set.
 
 ### **Evaluation**
-
 We evaluate the quality of artificially generated sentences along the following two dimensions:
-
 1. Evaluation by humans:
-    * 15 human participants   
-    * **Task 1**: Real vs Generated 
+    * 15 participants
+    
+    * **Task 1**: Real vs Generated
         * 48 comments; 24 real, 24 generated
         * Machine generated texts are shuffled with human generated text.
-        * Evaluators were asked whether they think the review is human or machine generated
-    * **Task 2**: Sentiment Classification 
+        * Evaluators were asked whether they think the review is generated by human or machine.
+    * **Task 2**: Sentiment Classification
         * 48 comments; 24 1-star, 24 5-star
-        * Evaluators were asked whether they think the review is positive or negative
-    
+        * Evaluators were asked whether they think the review is positive or negative. 
+
 1. Evaluation by algorithm:
-    * BERT model based Bi-LSTM sentiment classifier
+    * BERT model-based Bi-LSTM sentiment classifier (the same system as in *Experiments* section)
     * Trained on IMDB data using BERT embeddings (IMDB test set accuracy: 92.31%)
+    
     * **Task 2**: Sentiment Classification 
         * 48 comments; 24 1-star, 24 5-star
 
 
 ### **Results**
+#### Control between sentiment and syntax   
+* Example of conditional decoder output of negative condition, star rating 1.
+<div class="img_row">
+<img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig8.png" alt="" title="fig8"/>
+</div>
+<div class="col three caption">
+Conditional decoder output with a range of 𝜶
+</div>
 
-#### **Control between sentiment and syntex**   
-* Example of conditional decoder output of negative condition,  star rating 1.
-    <div class="img_row">
-    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig8.png" alt="" title="fig8"/>
-    </div>
-    <div class="col three caption">
-    Conditional decoder output with a range of 𝜶
-    </div>
+* If alpha is 0, there is no influence of discriminator, and it sometimes generates sentiment that does not correspond to the given sentiment (For a given star rating of 1 but alpha of 0, the sentence says "she loves it")
+* Higher alpha values show grammatical errors (e.g. These are a terrible product) or sentences do not make any sense (e.g. no distortion when it goes)
 
-
-#### **Improvement of sentiment accuracy by conditional decoder and output filtering**
+#### Improvement of sentiment accuracy by conditional decoder and output filtering
 <div class="img_row">
 <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig9.png" alt="" title="fig9"/>
 </div>
-<div class="col two caption">
-Sentiment Accuracy 
-(*Sentiment accuracy is evaluated with different 𝜶 and 𝜶=0.65 gives the best performance.)
-</div>
 
+* Sentiment accuracy is evaluated with different 𝜶 and 𝜶=0.65 gives the best performance while showing a good balance between grammar and accurate sentiment.
+* All the following evaluation is done with alpha value of 0.65.
 
-<!--|         | No Conditional Decoder (𝜶=0) | Conditional Decoder (𝜶=0.65*) | -->
-<!--    | :-------------: |-------------| -----|| ------------- |-->
-<!--    | Sentiment Accuracy | right-aligned | $1600 |-->
-
-
-#### **Task 1: Real vs Generated**
-
-1. Evaluation by Humans:
-    **Accuracy (F1 score): 70.83% (73.31%)**
+#### Task 1: Real vs Generated
+1. Evaluation by Humans: **Accuracy (F1 score): 70.83% (73.31%)**
     <div class="img_row">
     <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig10.png" alt="" title="fig10"/>
     </div>
-    <div class="col three caption">
-    Accuracy of 50% means humans cannot tell the difference.
-    </div>
+    * 50% is chance probablity and this means that some texts are very plausible while some are not.
     * *Highlights* of evaluation by humans
     <div class="img_row">
     <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig11.png" alt="" title="fig11"/>
     </div>
-        
-<!--            **GOOD** -->
-<!--            (*More than 90% are fooled*)-->
-<!--        -->
-<!--            `these speakers are not the best sounding radio i have tried . i have had it for a few months and it stopped working . i am very disappointed in the quality of the product .`-->
-<!--            -->
-<!--            `this thing rocks ! ! ! ! easy to carry and works great . i can even see the difference in the picture and the sound quality is good .`-->
-<!--            -->
-<!--            `it has great sound , and the volume was quite adequate . easy to use and it was easy to set up . i like the way it is supposed to be .`-->
-<!---->
-<!--            **BAD** -->
-<!--            (*Nobody was fooled*)-->
-<!--            -->
-<!--            `i have had this battery for a few years now and i **have no complaints** . so far this is a terrible product .`-->
-<!--            -->
-<!--            `pro is a great product . the only problem is that the unit is not compatible with the unit , but the battery is dead . i have to recharge it with a different charger .`-->
-<!--            -->
-<!--            `i have had this tv for over a year and have had it for a month and then just stopped working . i have had it for a month and now it has a great picture . `-->
-      
-#### **Task 2: Sentiment Accuracy**
-1. Evaluation by humans:
- **Accuracy (F1 score):  87.5% (88.00%)**
-    * Ground truth: majority vote of annotated sentiment scores (0 generatd or 1 real) from humans 
+    * We picked three sentences that all the human annotators said "Real" comments. These sentences show very consistent sentiment.
+    * We also picked three sentences that all the human annotators said "Generated", which means failed output. These sentences show lots of conflicting sentiment and semantically incorrect phrases.
+
+#### Task 2: Sentiment Accuracy
+1. Evaluation by humans: **Accuracy (F1 score):  87.5% (88.00%)**
+    * Ground truth: majority vote of annotated sentiment scores (0 generated or 1 real) 
     * *Highlights* of evaluation by humans
     <div class="img_row">
     <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig12.png" alt="" title="fig12"/>
     </div>
-    
-2. Evaluation by machine:
- **Accuracy (F1 score): 77.08% (80.70%)**
-      * Softmax value of positive/negative sentiment class
+    * We picked the sentences with coherent sentiment outcome from human annotators. These sentences have very consistent sentiment in each sentence.
+    * We also picked the sentences which have conflicting annotations. These sentences have inconsistent sentiment which means failed output.
+
+2. Evaluation by machine: **Accuracy (F1 score): 77.08% (80.70%)**
+    * This score is from the softmax value of positive/negative sentiment class in BERT + BiLSTM model trained on IMDB dataset.
+    * BERT + BiLSTM model tends to misclassify negative sentence as positive sentence since there are plenty of negative expressions that do not exist in IMDB dataset. (e.g. This plastic cover do not fit into my camera and very cheaply made.)
 
 3. Sentiment Score Comparison Machine vs Humans
-  <div class="img_row">
-  <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig7.png" alt="" title="fig7"/>
-  </div>
+    <div class="img_row">
+    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig7.png" alt="" title="fig7"/>
+    </div>
+    * This correlation reflects the credibility of algorithm (machine)-based evaluation.
+    * There are few highly conflicting outcomes: Human annotators are far better at capturing semantics from the text to judge the actual sentiment.
 
- 
+### **Additional Work: Pretrained model (GPT-2) based text generation**
+
+#### [(CLICK) Product review generation using GPT2 model](https://github.com/tango4j/usc_cs566_project/blob/master/gpt2_work.md)
+* Click the above link to view the details.
+* Besides our proposed improved CVAE model, we also approahced this problem with pretrained language model (GPT-2).
+* For pretrained language model, we fined tuned the model with refined training dataset by filtering "helpfulness" in amazon review dataset.
+* Here are some examples from fine-tuned GPT-2 based text generation system:
+
+Score    |    Headline    |    Review
+--- | ----------------- | ---------------
+5    | I would buy those again    | I absolutely love these, even though the price was such that I did not get them in time. The sound is amazing and I would recommend these.
+2    | This item never came |    If you are looking at something for cheap, it would be very nice to receive an item that never came.  This item did not come after 2 weeks.  I emailed Amazon who did not even respond to my email.
+5    | Just what I was looking for    | My husband is always wanting to get a Bluetooth headset and has now found the ideal one in my pocket. It holds his music perfectly and is comfortable. It also has great sound quality for listening to music. Great sound, great built-in mic, and the Bluetooth connection works wonderfully. My husband can use his laptop to play his MP3 player while he works. The speakers work just fine on it. It is a bit loud but I get it loud. The headphones are very long and this is a great fit for those who want an outside ear, as well as others who require some sort of earbud. All in all, a great product for such a reasonable price.
+
 ### **Conclusion**
 1.  The challenge of ignored condition
-    * Input condition to CVAE can be ignored and lead to mode collapse.
-    * Conditional generative model should be carefully designed to avoid ignored condition problem.
- 
+* Input condition to CVAE can be ignored and lead to mode collapse.
+* Conditional generative model should be carefully designed to avoid ignored condition problem.
+
 1. Conditional decoder and output filtering 
-    * Conditional decoder leverages the discriminator’s ability to force the condition input.
-    * Output filtering also increases the quality of generated text.
- 
- 
+* Conditional decoder leverages the discriminator’s ability to force the condition input.
+* Output filtering also improves the quality of generated text.
+
+
 ### **Future Work**
 1. Consistency of sentiment:
-    * Time varying conditional decoder’s 𝜶 value that controls the condition 
-    * Self attention algorithm to focus on the certain part of the generated text.
- 
+* Time varying conditional decoder’s 𝜶 value that controls the condition 
+* Self attention algorithm to focus on the certain part of the generated text.
+
 1. Generative method coupled with CVAE+Discriminator
-    * A way to modify the random input to prevent the condition ignoring problem
- 
+* A way to modify the random input to prevent the condition ignoring problem
 
+### **Reference**
+[1] K. Sohn, H. Lee, and X. Yan. Learning Structured Output Representation using Deep Conditional Generative Models. *Advances in Neural Information Processing Systems*. 2015.     
+[2] A. Radford, J. Wu, R. Child, D. Luan, D. Amodei and I. Sutskever. *Language Models are Unsupervised Multitask Learners*. 2019.  
+[3] GPT-2 Model release: https://www.openai.com/blog/better-language-models/  
+[4] Amazon review dataset: http://jmcauley.ucsd.edu/data/amazon/
 
+___
+*Written by Yongwan Lim and Taejin Park on Dec. 5. 2019*
 
- 
-
-<!--Some preliminary results from the prototype models-->
-<!---->
-<!--1. CVAE output examples: Trained on 800,000 musical instrument section comments. Star rating of 5 was given as condition for CVAE model.-->
-<!---->
-<!--    * *Example 1*<br/>-->
-<!--        `<sos> i have been using this for a few months now and i am very pleased with the quality of the sound . the sound is very good and the sound is very good . i have a pair of these in my studio and they are very comfortable  . <eos>`-->
-<!---->
-<!--    * *Example 2*<br/>-->
-<!--       `<sos> i bought this for my son for christmas . he loves it . he has a lot of fun with it  . <eos> `-->
-<!---->
-<!--    * *Example 3*<br/>-->
-<!--        `<sos> i love this microphone . i use it for my karaoke and it works great . i have a lot of fun with it . <eos>`-->
-<!---->
-<!--2.  GPT-2 language model examples: (unconditioned baseline)-->
-<!---->
-<!--    * *Example 1*<br/>-->
-<!--        `The Contour Brush is a makeup brush that features majorly angled bristles and highly curated fine-sprinkle trays. Its medium size bristles on outward strokes makes it ideal for applied color and volumizing/contour techniques. Its single-handler mode allows for easy control and produces clean product, while elegant design accentuates the product's natural beauty. The contour brush requires a firm grip on the handle, utilized to control the crooked strokes that are most desired by makeup artists.`-->
-<!--        -->
-<!--    * *Example 2*<br/>-->
-<!--        `Using this brush comes with a few different application techniques. First, you should apply your face powder using a straight, wide, upward stroke over the center, and play around with type of product to get the correct color. Then, use the medium type of powder brushes to apply powders to remove excess product with the downward strokes. Lastly, use the contour brush to apply the eyeshadow. Don't forget to dry the blush brush after to prevent rolling and contamination!`-->
-<!---->
-<!--    * Observations: -->
-<!--        * Sampling methods have significant effects on results and intermediate training does not necessarily entail better accuracy-->
-<!--        * Focus on language modeling has greatest potential to increase performance-->
+___
