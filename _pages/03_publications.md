@@ -5,7 +5,7 @@ title: publications
 description: Peer-reviewed journals and conferences by categories in reversed chronological order.
 
 journal_years: [2019, 2017, 2015]
-conference_years: [2019, 2018, 2017, 2016, 2014, 2012]
+conference_years: [2020, 2019, 2018, 2017, 2016, 2014, 2012]
 ---
 
 ## **Journals**

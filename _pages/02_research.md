@@ -6,6 +6,15 @@ description: Current research projects
 
 ---
 -------
+### **Real-time Magnetic Resonance Imaging (RT-MRI)**
+
+My primary PhD research focuses on developing techniques for rapid RT-MRI
+
+<p align="center"> 
+<img src="/assets/img/rt_mri_tradeoff.png">
+</p>
+
+<br/>
 
 #### **3D real-time MRI imaging**
 How can we better understand speech production?  
