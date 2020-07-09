@@ -89,8 +89,8 @@ plugins:
 # Jekyll-Scholar
 scholar:
 
-  last_name: Lim1
-  last_name_equal_contribution: Zhao
+  last_name: Lim
+  last_name_equal_contribution: Lim*
 
   style: apa
   locale: en
