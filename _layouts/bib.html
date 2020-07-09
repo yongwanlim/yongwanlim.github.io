@@ -30,6 +30,9 @@
             {% if author.last == site.scholar.last_name %}
               <!--<em>{{author.last}}, {{author.first}}</em>,-->
               <em><b>{{author.first}} {{author.last}}</b></em>,
+            {% elsif author.last == site.scholar.last_name_equal_contribution %}
+              <!--<em>{{author.last}}, {{author.first}}</em>,-->
+              <em><b>{{author.first}} {{author.last}}</b></em>,
             {% else %}
               {% if site.data.coauthors[author.last] %}
                 <!--<a href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first}}</a>, -->
@@ -38,11 +41,14 @@
                 <!--{{author.last}}, {{author.first}},-->
                 {{author.first}} {{author.last}},
               {% endif %}
-            {% endif %}
+            {% endif %} 
           {% else %}
             {% if author.last == site.scholar.last_name %}
               <!--and <em>{{author.last}}, {{author.first}}</em>-->
               and <em><b>{{author.first}} {{author.last}}</b></em>
+            {% elsif author.last == site.scholar.last_name_equal_contribution %}
+              <!--<em>{{author.last}}, {{author.first}}</em>,-->
+              and <em><b>{{author.first}} {{author.last}}</b></em>,
             {% else %}
               {% if site.data.coauthors[author.last] %}
                 <!--and <a href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first}}</a> -->
@@ -50,7 +56,7 @@
               {% else %}
                 <!--and {{author.last}}, {{author.first}}-->
                 and {{author.first}} {{author.last}}
-              {% endif %}
+              {% endif %}  
             {% endif %}
           {% endunless %}
         {% endif %}

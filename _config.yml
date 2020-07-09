@@ -19,14 +19,14 @@ github_username: yongwanlim # your GitHub user name
 twitter_username: # your Twitter handle
 linkedin_username: yongwanlim # your LinkedIn user name
 scholar_userid: z_uvzWIAAAAJ # your Google Scholar ID
-orcid_id: # your ORCID ID
+orcid_id: https://orcid.org/0000-0003-0070-0034 # your ORCID ID
 medium_username: # your Medium username
 quora_username: # your Quora username
 
 contact_note: >
 #  You can even add a little note about which of these is the best way to reach you.
 
-google_analytics: UA-XXXXXXXXX # out your google-analytics code
+google_analytics: UA-166081774-1 # out your google-analytics code
 
 # -----------------------------------------------------------------------------
 # Blog
@@ -89,7 +89,8 @@ plugins:
 # Jekyll-Scholar
 scholar:
 
-  last_name: Lim
+  last_name: Lim1
+  last_name_equal_contribution: Zhao
 
   style: apa
   locale: en
