@@ -14,6 +14,8 @@ conference_years: [2020, 2019, 2018, 2017, 2016, 2014, 2012]
   {% bibliography -f journals -q @*[year={{y}}]* %}
 {% endfor %}
 
+{*: contributed equally}
+
 ## **Conferences**
 {% for y in page.conference_years %}
   <h3 class="year">{{y}}</h3>
