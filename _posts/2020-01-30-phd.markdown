@@ -1,0 +1,12 @@
+---
+layout: post
+title: phd
+date: 2021-01-30 
+description: 
+---
+<!-- Recently I had some chance to chat with several phd applicants who apply for USC phd program and are interested in joining our research lab.  --> 
+
+--- 
+**Reference**
+
+<http://blog.kovalevskyi.com/multiple-version-of-cuda-libraries-on-the-same-machine-b9502d50ae77>
