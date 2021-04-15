@@ -2,22 +2,23 @@
 layout: about
 permalink: /
 title: <strong>Yongwan </strong>Lim
-description: <a href="">Ph.D. Student</a>, University of Southern California
+description: <a href="">Research Scientist</a>, University of Southern California
 
 profile:
   align: right
   image: prof_pic.jpg
   address: >
 
-news: true
+news: false
 social: true
 ---
 
-I am an electrical and computer engineering Ph.D. student in the [Magnetic Resonance Engineerining Lab (MREL)](https://mrel.usc.edu/) and [Signal Analysis and Interpretation Lab (SAIL)](https://sail.usc.edu/) at the [University of Southern California (USC)](https://www.usc.edu/). I am co-advised by [Dr. Krishna S. Nayak](http://sipi.usc.edu/~knayak/) and [Dr. Shrikanth Narayanan](https://sail.usc.edu/people/shri.html).
+I am a research scientist in Electrical and Computer Engineering in the Viterbi School of Engineering Department at the [University of Southern California (USC)](https://www.usc.edu/) where I also serve as MR Physicst at [Dynamic Imaging Science Center (DISC)](https://disc.usc.edu). 
 
-My research interests are broadly in magnetic resonance imaging (MRI), signal and image processing, machine learning, and deep learning. Specifically, my current research focuses on improving real-time MRI technique for speech production research, and includes image deblurring and low-latency image reconstruction using machine learning approaches.
+I received my Ph.D. in Electrical and Computer Engineering from USC in December 2020. Since starting my Ph.D. study, I have worked closely with [Dr. Krishna S. Nayak](http://sipi.usc.edu/~knayak/) (co-advisor),  [Dr. Shrikanth Narayanan](https://sail.usc.edu/people/shri.html) (co-advisor), and [Dr. Dani Byrd](https://sites.google.com/view/danibyrd-home) in the [Magnetic Resonance Engineerining Lab (MREL)](https://mrel.usc.edu/), [Signal Analysis and Interpretation Lab (SAIL)](https://sail.usc.edu/), and [Speech Production and Articulation kNowledge (SPAN)](https://span.usc.edu/) group at USC. 
 
-Prior to USC, I worked at [KIST MRL](https://mrlab.imrc.kist.re.kr/) as a Researcher. I earned Master and Bachelor degrees in Electrical Engineering from the [Korea Advanced Institution of Science and Technology (KAIST)](http://www.kaist.edu/html/en/index.html) in 2014, and the [Sogang University](http://wwwe.sogang.ac.kr) in 2012, respectively.
+My research interests are broadly in the development of novel computational imaging and post-processing techniques based on signal processing, mathematical optimization, and machine and deep learning. A majority of my current research effort is dedicated to optimizing and developing new MRI methods for USC's 0.55T MRI. My past research experience was focused on pulse sequence design, data sampling and reconstruction, and artifact mitigation for real-time magnetic resonance imaging for human speech production. 
+
 <br/>
 <br/>
 

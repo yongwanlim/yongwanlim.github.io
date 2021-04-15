@@ -7,7 +7,7 @@
 @article{spiralaliasing_mrm2021,
 author = {Tian, Y and Lim, Y and Zhao, Z and Byrd, D and Narayanan, S and Nayak, KS},
 title = {Aliasing artifact reduction in spiral real-time MRI},
-journal = {Magnetic Resonance in Medicine, in press},
+journal = {Magnetic Resonance in Medicine},
 volume = {},
 number = {},
 pages = {},
@@ -16,6 +16,22 @@ doi = {},
 url = {},
 eprint = {},
 year = {2021},
+jrnl={https://onlinelibrary.wiley.com/doi/10.1002/mrm.28746},
+code = {https://github.com/usc-mrel/spiral_aliasing_reduction},
+pdf = {mrm.28746.pdf}
+
+abstract = {Purpose:
+To mitigate a common artifact in spiral real‐time MRI, caused by aliasing of signal outside the desired FOV. This artifact frequently occurs in midsagittal speech real‐time MRI.
+
+Methods:
+Simulations were performed to determine the likely origin of the artifact. Two methods to mitigate the artifact are proposed. The first approach, denoted as “large FOV” (LF), keeps an FOV that is large enough to include the artifact signal source during reconstruction. The second approach, denoted as “estimation‐subtraction” (ES), estimates the artifact signal source before subtracting a synthetic signal representing that source in multicoil k‐space raw data. Twenty‐five midsagittal speech‐production real‐time MRI data sets were used to evaluate both of the proposed methods. Reconstructions without and with corrections were evaluated by two expert readers using a 5‐level Likert scale assessing artifact severity. Reconstruction time was also compared.
+
+Results:
+The origin of the artifact was found to be a combination of gradient nonlinearity and imperfect anti‐aliasing in spiral sampling. The LF and ES methods were both able to substantially reduce the artifact, with an averaged qualitative score improvement of 1.25 and 1.35 Likert levels for LF correction and ES correction, respectively. Average reconstruction time without correction, with LF correction, and with ES correction were 160.69 ± 1.56, 526.43 ± 5.17, and 171.47 ± 1.71 ms/frame.
+
+Conclusion:
+Both proposed methods were able to reduce the spiral aliasing artifacts, with the ES‐reduction method being more effective and more time efficient.
+}
 }
 
 @article{improved3drtmri_mrm2020,
@@ -42,6 +58,7 @@ Conclusion:
 We have demonstrated improved 3D real‐time MRI of speech production using randomized, variable‐density, stack‐of‐spiral sampling with a 3D spatio‐temporally constrained reconstruction.},
 year = {2021},
 jrnl={https://onlinelibrary.wiley.com/doi/10.1002/mrm.28651},
+code = {https://https://github.com/usc-mrel/Improved_3DRT_Speech},
 pdf = {2021, Improved 3D real-time MRI of speech production, MRM.pdf}
 }
 

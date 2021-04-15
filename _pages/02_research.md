@@ -5,8 +5,8 @@ title: research
 description: Current research projects
 
 ---
-### **Real-time Magnetic Resonance Imaging (RT-MRI)**
-My Ph.D. research has mainly focused on the development of novel MRI acquisition, reconstruction, and processing methods that overcome fundamental imaging trade-offs and enable rapid real-time MRI with high-quality full spatial coverage with minimum latency. 
+### **Real-time Magnetic Resonance Imaging**
+My research has mainly focused on the development of novel MRI acquisition, reconstruction, and post-processing methods based on signal processing, mathematical optimization, and machine and deep learning. A majority of my research effort has been dedicated to overcoming fundamental imaging trade-offs and enabling rapid imaging with high quality, large spatial coverage, and low latency. 
 
 
 <p align="center"> 
@@ -18,32 +18,36 @@ My Ph.D. research has mainly focused on the development of novel MRI acquisition
 -------
 
 #### **3D real-time imaging**
-_How can we better understand speech production using RT-MRI techniques?_  
+_Can real-time MRI technique help us understand speech production better?_  
 
-Current RT-MRI techniques can provide high temporal and spatial resolution dynamic images, but most of which are limited to visualizing one or a few 2D imaging planes (2D RT-MRI). This is mainly due to the intrinsic MRI tradeoffs among imaging parameters: increasing one requires to sacrifice another, for example, temporal resolution versus spatial coverage. However, body parts consisting of muscles and joints involved in significant motions are enormously complex in 3D geometry and in temporal structuring and cannot be fully understood from limited 2D imaging planes.
+Real-time MRI technique can visualize moving vocal organs that are involved in speech production such as the tongue, lips, and velum, at relatively high temporal and spatial resolution. However, current methods can only visualize one or a few 2D imaging planes at a time, which provides an incomplete view of the relevant anatomy. This is mainly due to MRI tradeoffs among several imaging parameters: increasing one requires to sacrifice another, for example, temporal resolution versus spatial coverage. 
 
-
-In this project, we develop and evaluate a technique for 3D RT-MRI that enables visualization of the entire vocal organs at high temporal and spatial resolution during natural speech production. 
+In this project, we develop and demonstrate "first-ever" volumetric real-time MRI of speech production that enables visualization of the entire vocal organs at high temporal and spatial resolution during natural speech production. 
 
 <p align="center"> 
 <img src="/assets/img/3drtmri_gif.gif">
 </p>
 
+The image demonstrates 3D tongue and vocal tract shape features that were never previously visualized.   
+
 <br/>
 
 Related publications
-* Z Zhao, **Y Lim**, D Byrd, S Narayanan, and KS Nayak, Improved 3D real-time MRI of speech production, _Magnetic Resonance in Medicine_, 2020. In press. 
-* **Y Lim**, Y Zhu, SG Lingala, D Byrd, S Narayanan, and KS Nayak, 3D dynamic MRI of the vocal tract during natural speech, _Magnetic Resonance in Medicine_, vol. 81, no. 3, pp. 1511–1520, Mar. 2019.
+* Z Zhao, **Y Lim**, D Byrd, S Narayanan, and KS Nayak, Improved 3D real-time MRI of speech production, _Magnetic Resonance in Medicine_, vol. 85, no. 6, pp. 3182-3195, 2021. 
+* **Y Lim**, Y Zhu, SG Lingala, D Byrd, S Narayanan, and KS Nayak, 3D dynamic MRI of the vocal tract during natural speech, _Magnetic Resonance in Medicine_, vol. 81, no. 3, pp. 1511–1520, 2019.
 
 -------
 
 #### **Image deblurring**
-_How can we achieve better image quality for RT-MRI?_
+_Can we achieve better image quality for real-time MRI?_
 
-In the context of _spiral_ RT-MRI, vocal organs' boundaries suffer from spatially and temporally varying blurring due to _off-resonance effect_. It is necessary to improve depiction and tracking of vocal articulators for RT-MRI. 
+While spiral-sampling-based MRI technique enables time-efficient imaging, its vulnerability to image artifacts remains challenging and often existing techniques to addressing artifacts rely on computationally expensive methods, making them infeasible to adopt in some applications.
 
+One example of image artifacts in speech production imaging is **blurring** that appears most severely at vocal organs' boundaries and that also varies over time as organs move. This artifact stems from what is called _off-resonance effect_ and the mitigation of this artifact is critical to improving depiction and tracking of vocal articulators for real-time MRI. 
 
-In this project, we develop deblurring methods that deal with the spatial varying blur using model-based and data-driven approaches. 
+In this project, we focus on the development of fast, small, and computationally effective deep learning techniques that can achieve low-latency deblurring, by designing a model-based
+training data generation framework, a minimal convolutional neural network, and an attention-gated
+mechanism. We demonstrated low-latency (<20msec per frame) deblurring is possible with comparable quality to conventional approaches (>1sec). We validated artifact mitigation techniques in a large in vivo data corpus and demonstrated increased image sharpness as well as improved usability and interpretability of the acquired data and result in data analysis.
 
 <p align="center"> 
 <img src="/assets/img/dorc_gif.gif">
@@ -52,6 +56,20 @@ In this project, we develop deblurring methods that deal with the spatial varyin
 Related publications
 * **Y Lim**, S Narayanan, and KS Nayak, Attention-gated convolutional neural networks for off-resonance correction of spiral real-time MRI, _in Proc. 28th ISMRM Scientific Sessions_, Virtual Conference, April 2020.
 * **Y Lim**, Y Bliesener, S Narayanan, and KS Nayak, Deblurring for spiral real-time MRI using convolutional neural networks, _Magnetic Resonance in Medicine_, vol. 84, no. 6, pp. 3438–3452, Dec. 2020.
-* SG Lingala, **Y Lim**, S Kruger, and KS Nayak, Improved spiral dynamic MRI of vocal tract shaping at 3 Tesla using dynamic off-resonance artifact correction, _in Proc. 27th ISMRM Scientific Sessions_, Montreal, Canada, May 2019. 
 * **Y Lim**, SG Lingala, S Narayanan, and KS Nayak, Dynamic off-resonance correction for spiral real-time MRI of speech, _Magnetic Resonance in Medicine_, vol. 81, no. 1, pp. 234–246, Jan. 2019.
-* **Y Lim**, SG Lingala, A Toutios, S Narayanan, and KS Nayak, Improved depiction of tissue boundaries in vocal tract real-time MRI using automatic off-resonance correction, _in Proc. Interspeech_, pp. 1765–1769, San Francisco, CA, USA, Sep. 2016.
+
+-------
+
+#### **A public speech production MRI dataset **
+Real-time MRI of human speech production is enabling significant advances in speech science, linguistics, bioinspired speech technology development, and clinical applications. However, easy access to this technique is limited, and comprehensive datasets with broad access are needed. 
+
+In an interdisciplinary team effort, I have contributed to the development of a unique data corpus of multimodal speech production MRI data from an unprecedented number of 75 subjects. 
+
+This dataset will offer the linguistics and speech sciences, computational imaging, and engineering community an opportunity to help understand human speech production better and develop advanced computational algorithms for imaging. 
+
+<p align="center"> 
+<img src="/assets/img/75subj.png">
+</p>
+
+Related publications
+* **Y Lim**, A Toutios, et al, A multispeaker dataset of raw and reconstructed speech production real-time MRI video and 3D volumetric images, arXiv:2102.07896, 2021.
