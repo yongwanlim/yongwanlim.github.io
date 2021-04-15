@@ -13,8 +13,6 @@ My research has mainly focused on the development of novel MRI acquisition, reco
 <img src="/assets/img/rt_mri_tradeoff.png">
 </p>
 
-<br/>
-
 -------
 
 #### **3D real-time imaging**
@@ -24,13 +22,11 @@ Real-time MRI technique can visualize moving vocal organs that are involved in s
 
 In this project, we develop and demonstrate "first-ever" volumetric real-time MRI of speech production that enables visualization of the entire vocal organs at high temporal and spatial resolution during natural speech production. 
 
+The below image demonstrates 3D tongue and vocal tract shape features that were never previously visualized.   
+
 <p align="center"> 
 <img src="/assets/img/3drtmri_gif.gif">
 </p>
-
-The image demonstrates 3D tongue and vocal tract shape features that were never previously visualized.   
-
-<br/>
 
 Related publications
 * Z Zhao, **Y Lim**, D Byrd, S Narayanan, and KS Nayak, Improved 3D real-time MRI of speech production, _Magnetic Resonance in Medicine_, vol. 85, no. 6, pp. 3182-3195, 2021. 
@@ -73,3 +69,5 @@ This dataset will offer the linguistics and speech sciences, computational imagi
 
 Related publications
 * **Y Lim**, A Toutios, et al, A multispeaker dataset of raw and reconstructed speech production real-time MRI video and 3D volumetric images, arXiv:2102.07896, 2021.
+
+-------
