@@ -60,7 +60,7 @@ Related publications
 
 -------
 
-#### **A public speech production MRI dataset **
+#### **A public speech production MRI dataset**
 Real-time MRI of human speech production is enabling significant advances in speech science, linguistics, bioinspired speech technology development, and clinical applications. However, easy access to this technique is limited, and comprehensive datasets with broad access are needed. 
 
 In an interdisciplinary team effort, I have contributed to the development of a unique data corpus of multimodal speech production MRI data from an unprecedented number of 75 subjects. 
