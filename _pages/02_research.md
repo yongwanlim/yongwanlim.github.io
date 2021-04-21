@@ -64,7 +64,7 @@ In an interdisciplinary team effort, I have contributed to the development of a 
 This dataset will offer the linguistics and speech sciences, computational imaging, and engineering community an opportunity to help understand human speech production better and develop advanced computational algorithms for imaging. 
 
 <p align="center"> 
-<img src="/assets/img/75subj.png">
+<img src="/assets/img/75speakers_rainbow.gif">
 </p>
 
 Related publications
