@@ -46,7 +46,7 @@ training data generation framework, a minimal convolutional neural network, and 
 mechanism. We demonstrated low-latency (<20msec per frame) deblurring is possible with comparable quality to conventional approaches (>1sec). We validated artifact mitigation techniques in a large in vivo data corpus and demonstrated increased image sharpness as well as improved usability and interpretability of the acquired data and result in data analysis.
 
 <p align="center"> 
-<img src="/assets/img/dorc_gif.gif">
+<img src="/assets/img/attgated_deblurring.gif">
 </p>
 
 Related publications
