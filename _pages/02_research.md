@@ -20,9 +20,9 @@ _Can real-time MRI technique help us understand speech production better?_
 
 Real-time MRI technique can visualize moving vocal organs that are involved in speech production such as the tongue, lips, and velum, at relatively high temporal and spatial resolution. However, current methods can only visualize one or a few 2D imaging planes at a time, which provides an incomplete view of the relevant anatomy. This is mainly due to MRI tradeoffs among several imaging parameters: increasing one requires to sacrifice another, for example, temporal resolution versus spatial coverage. 
 
-In this project, we develop and demonstrate "first-ever" volumetric real-time MRI of speech production that enables visualization of the entire vocal organs at high temporal and spatial resolution during natural speech production. 
+In this project, we develop and demonstrate volumetric real-time MRI of speech production that enables visualization of the entire vocal organs at high temporal and spatial resolution during natural speech production. 
 
-The below image demonstrates 3D tongue and vocal tract shape features that were never previously visualized.   
+The below image demonstrates 3D tongue and vocal tract shape features that were never previously attempted to visualize.   
 
 <p align="center"> 
 <img src="/assets/img/3drtmri_gif.gif">
