@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Yongwan Lim | research</title>
+  <meta name="description" content="">
+
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="/research/">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <span class="site-title">
+        
+        <strong>Yongwan</strong> Lim
+    </span>
+    
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+      <div class="trigger">
+        <!-- About -->
+        <a class="page-link" href="/">about</a>
+
+        <!-- Blog -->
+        <!-- <a class="page-link" href="/blog/">blog</a>-->
+
+        <!-- Pages -->
+        
+          
+        
+          
+            <a class="page-link" href="/research/">research</a>
+          
+        
+          
+            <a class="page-link" href="/publications/">publications</a>
+          
+        
+          
+            <a class="page-link" href="/projects/">projects</a>
+          
+        
+          
+        
+          
+        
+          
+        
+
+        <!-- CV link -->
+        <a class="page-link" href="/assets/pdf/yongwan_cv.pdf">vitae</a> 
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">research</h1>
+    <h5 class="post-description">Current research projects</h5>
+  </header>
+
+  <article class="post-content research clearfix">
+    <h3 id="real-time-magnetic-resonance-imaging"><strong>Real-time Magnetic Resonance Imaging</strong></h3>
+<p>My research has mainly focused on the development of novel MRI acquisition, reconstruction, and post-processing methods based on signal processing, mathematical optimization, and machine and deep learning. A majority of my research effort has been dedicated to overcoming fundamental imaging trade-offs and enabling rapid imaging with high quality, large spatial coverage, and low latency.</p>
+
+<p align="center"> 
+<img src="/assets/img/rt_mri_tradeoff.png" />
+</p>
+
+<hr />
+
+<h4 id="3d-real-time-imaging"><strong>3D real-time imaging</strong></h4>
+<p><em>Can real-time MRI technique help us understand speech production better?</em></p>
+
+<p>Real-time MRI technique can visualize moving vocal organs that are involved in speech production such as the tongue, lips, and velum, at relatively high temporal and spatial resolution. However, current methods can only visualize one or a few 2D imaging planes at a time, which provides an incomplete view of the relevant anatomy. This is mainly due to MRI tradeoffs among several imaging parameters: increasing one requires to sacrifice another, for example, temporal resolution versus spatial coverage.</p>
+
+<p>In this project, we develop and demonstrate volumetric real-time MRI of speech production that enables visualization of the entire vocal organs at high temporal and spatial resolution during natural speech production.</p>
+
+<p>The below image demonstrates 3D tongue and vocal tract shape features that were never previously attempted to visualize.</p>
+
+<p align="center"> 
+<img src="/assets/img/3drtmri_gif.gif" />
+</p>
+
+<p>Related publications</p>
+<ul>
+  <li>Z Zhao, <strong>Y Lim</strong>, D Byrd, S Narayanan, and KS Nayak, Improved 3D real-time MRI of speech production, <em>Magnetic Resonance in Medicine</em>, vol. 85, no. 6, pp. 3182-3195, 2021.</li>
+  <li><strong>Y Lim</strong>, Y Zhu, SG Lingala, D Byrd, S Narayanan, and KS Nayak, 3D dynamic MRI of the vocal tract during natural speech, <em>Magnetic Resonance in Medicine</em>, vol. 81, no. 3, pp. 1511–1520, 2019.</li>
+</ul>
+
+<hr />
+
+<h4 id="image-deblurring"><strong>Image deblurring</strong></h4>
+<p><em>Can we achieve better image quality for real-time MRI?</em></p>
+
+<p>While spiral-sampling-based MRI technique enables time-efficient imaging, its vulnerability to image artifacts remains challenging and often existing techniques to addressing artifacts rely on computationally expensive methods, making them infeasible to adopt in some applications.</p>
+
+<p>One example of image artifacts in speech production imaging is <strong>blurring</strong> that appears most severely at vocal organs’ boundaries and that also varies over time as organs move. This artifact stems from what is called <em>off-resonance effect</em> and the mitigation of this artifact is critical to improving depiction and tracking of vocal articulators for real-time MRI.</p>
+
+<p>In this project, we focus on the development of fast, small, and computationally effective deep learning techniques that can achieve low-latency deblurring, by designing a model-based
+training data generation framework, a minimal convolutional neural network, and an attention-gated
+mechanism. We demonstrated low-latency (&lt;20msec per frame) deblurring is possible with comparable quality to conventional approaches (&gt;1sec). We validated artifact mitigation techniques in a large in vivo data corpus and demonstrated increased image sharpness as well as improved usability and interpretability of the acquired data and result in data analysis.</p>
+
+<p align="center"> 
+<img src="/assets/img/attgated_deblurring.gif" />
+</p>
+
+<p>Related publications</p>
+<ul>
+  <li><strong>Y Lim</strong>, S Narayanan, and KS Nayak, Attention-gated convolutional neural networks for off-resonance correction of spiral real-time MRI, <em>in Proc. 28th ISMRM Scientific Sessions</em>, Virtual Conference, April 2020.</li>
+  <li><strong>Y Lim</strong>, Y Bliesener, S Narayanan, and KS Nayak, Deblurring for spiral real-time MRI using convolutional neural networks, <em>Magnetic Resonance in Medicine</em>, vol. 84, no. 6, pp. 3438–3452, Dec. 2020.</li>
+  <li><strong>Y Lim</strong>, SG Lingala, S Narayanan, and KS Nayak, Dynamic off-resonance correction for spiral real-time MRI of speech, <em>Magnetic Resonance in Medicine</em>, vol. 81, no. 1, pp. 234–246, Jan. 2019.</li>
+</ul>
+
+<hr />
+
+<h4 id="a-public-speech-production-mri-dataset"><strong>A public speech production MRI dataset</strong></h4>
+<p>Real-time MRI of human speech production is enabling significant advances in speech science, linguistics, bioinspired speech technology development, and clinical applications. However, easy access to this technique is limited, and comprehensive datasets with broad access are needed.</p>
+
+<p>In an interdisciplinary team effort, I have contributed to the development of a unique data corpus of multimodal speech production MRI data from an unprecedented number of 75 subjects.</p>
+
+<p>This dataset will offer the linguistics and speech sciences, computational imaging, and engineering community an opportunity to help understand human speech production better and develop advanced computational algorithms for imaging.</p>
+
+<p align="center"> 
+<img src="/assets/img/75speakers_rainbow.gif" />
+</p>
+
+<p>Related publications</p>
+<ul>
+  <li>
+    <h2 id="y-lim-a-toutios-et-al-a-multispeaker-dataset-of-raw-and-reconstructed-speech-production-real-time-mri-video-and-3d-volumetric-images-scientific-data-nature-8-187-2021"><strong>Y Lim</strong>, A Toutios, et al, A multispeaker dataset of raw and reconstructed speech production real-time MRI video and 3D volumetric images, <em>Scientific Data (Nature)</em> 8, 187. 2021.</h2>
+  </li>
+</ul>
+
+  </article>
+
+  
+
+  
+
+</div>
+
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    &copy; Copyright 2021 Yongwan Lim.
+    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+
+    
+  </div>
+
+</footer>
+
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+<script src="/assets/js/katex.js"></script>
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/assets/css/academicons.min.css">
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166081774-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+
+</html>
