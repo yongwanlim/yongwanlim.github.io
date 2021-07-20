@@ -68,6 +68,5 @@ This dataset will offer the linguistics and speech sciences, computational imagi
 </p>
 
 Related publications
-* **Y Lim**, A Toutios, et al, A multispeaker dataset of raw and reconstructed speech production real-time MRI video and 3D volumetric images, Scientific Data (Nature). 2021. In press. (arXiv:2102.07896)
-
+* **Y Lim**, A Toutios, et al, A multispeaker dataset of raw and reconstructed speech production real-time MRI video and 3D volumetric images, _Scientific Data (Nature)_ 8, 187. 2021. 
 -------
